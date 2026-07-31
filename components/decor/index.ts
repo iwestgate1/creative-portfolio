@@ -1,0 +1,9 @@
+export { default as Tape } from "./Tape";
+export { default as PaperClip } from "./PaperClip";
+export { default as BinderClip } from "./BinderClip";
+export { default as FolderTab } from "./FolderTab";
+export { default as PolaroidFrame } from "./PolaroidFrame";
+export { default as HandwrittenNote } from "./HandwrittenNote";
+export { default as ProjectStamp } from "./ProjectStamp";
+export { default as ContactSheet } from "./ContactSheet";
+export { default as PaperTexture } from "./PaperTexture";

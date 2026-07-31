@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #f6f1e6;
+  --color-paper-dim: #efe7d6;
+  --color-cream: #faf6ee;
+  --color-white: #fffdf8;
+  --color-ink: #17140f;
+  --color-ink-soft: #3a352c;
+  --color-espresso: #241a13;
+  --color-espresso-2: #180f0a;
+  --color-folder: #d9d2bf;
+  --color-folder-dark: #c3baa2;
+  --color-olive: #6b6b4a;
+  --color-olive-dark: #52512f;
+  --color-taupe: #ab9c85;
+  --color-taupe-light: #cbbfa9;
+  --color-line: #d6cfbc;
+  --color-rust: #9c5a3c;
+
+  --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-space-mono), "Courier New", monospace;
+  --font-hand: var(--font-caveat), cursive;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-paper);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-olive);
+  color: var(--color-cream);
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Custom cursor: hide native cursor only on precise pointers ── */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-none {
+    cursor: none;
+  }
+}
+
+/* ── Texture utilities ───────────────────────────────────────── */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+.grain-strong::after {
+  opacity: 0.12;
+}
+
+.paper-texture {
+  background-color: var(--color-paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.halftone-dots {
+  background-image: radial-gradient(circle, rgba(23, 20, 15, 0.85) 32%, transparent 33%);
+  background-size: 5px 5px;
+  background-position: 0 0;
+}
+
+/* ── Physical-feeling shadows (used sparingly) ──────────────────── */
+.shadow-paper {
+  box-shadow:
+    0 1px 1px rgba(23, 20, 15, 0.06),
+    0 8px 20px -10px rgba(23, 20, 15, 0.18),
+    0 24px 48px -28px rgba(23, 20, 15, 0.2);
+}
+
+.shadow-paper-lg {
+  box-shadow:
+    0 2px 2px rgba(23, 20, 15, 0.07),
+    0 20px 40px -16px rgba(23, 20, 15, 0.22),
+    0 48px 96px -48px rgba(23, 20, 15, 0.28);
+}
+
+/* ── Torn / deckled paper edge ───────────────────────────────── */
+.edge-deckle {
+  clip-path: polygon(
+    0% 2%, 4% 0%, 9% 1.5%, 14% 0%, 19% 1.2%, 24% 0%, 30% 1.5%, 36% 0%, 42% 1%, 48% 0%,
+    54% 1.4%, 60% 0%, 66% 1%, 72% 0%, 78% 1.5%, 84% 0%, 90% 1.2%, 96% 0%, 100% 1.5%,
+    100% 98%, 96% 100%, 90% 98.5%, 84% 100%, 78% 98.8%, 72% 100%, 66% 98.5%, 60% 100%,
+    54% 98.6%, 48% 100%, 42% 99%, 36% 100%, 30% 98.5%, 24% 100%, 19% 98.8%, 14% 100%,
+    9% 98.5%, 4% 100%, 0% 98%
+  );
+}
+
+/* ── Typewriter caption style ───────────────────────────────── */
+.font-type {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Reduced motion: neutralize animation, keep layout ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hide scrollbar for horizontal archive strips, keep it scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
