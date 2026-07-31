@@ -1,0 +1,239 @@
+/*
+ * Temporary archive-box styling for /animation-test.
+ * Scoped to this page only — not part of the shared design system yet.
+ * Wood/limestone tokens are local to this module until this look is
+ * approved and ported into the real hero.
+ */
+
+.hero {
+  --limestone: #d9d2c2;
+  --limestone-mid: #c7bfab;
+  --limestone-shadow: #a89c83;
+  --walnut: #4a3323;
+  --walnut-deep: #201409;
+  --brass: #a9803f;
+  --brass-bright: #f0d68f;
+  --brass-shadow: #5f430f;
+  --engrave-shadow: rgba(8, 4, 2, 0.55);
+  --engrave-light: rgba(255, 224, 175, 0.4);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(2.2px 2.2px at 8% 18%, rgba(60, 52, 38, 0.16) 45%, transparent 46%),
+    radial-gradient(1.6px 1.6px at 22% 62%, rgba(60, 52, 38, 0.13) 45%, transparent 46%),
+    radial-gradient(2.6px 2.6px at 46% 30%, rgba(60, 52, 38, 0.12) 45%, transparent 46%),
+    radial-gradient(1.8px 1.8px at 63% 74%, rgba(60, 52, 38, 0.14) 45%, transparent 46%),
+    radial-gradient(2.4px 2.4px at 81% 22%, rgba(60, 52, 38, 0.11) 45%, transparent 46%),
+    radial-gradient(1.6px 1.6px at 91% 60%, rgba(60, 52, 38, 0.15) 45%, transparent 46%),
+    radial-gradient(2px 2px at 35% 88%, rgba(60, 52, 38, 0.1) 45%, transparent 46%),
+    radial-gradient(1.8px 1.8px at 12% 85%, rgba(60, 52, 38, 0.12) 45%, transparent 46%),
+    radial-gradient(150% 120% at 50% 4%, rgba(255, 252, 244, 0.35), transparent 55%),
+    radial-gradient(140% 130% at 50% 110%, var(--limestone-shadow) 0%, transparent 60%),
+    linear-gradient(180deg, var(--limestone) 0%, var(--limestone-mid) 100%);
+  background-size:
+    54px 54px,
+    46px 46px,
+    70px 70px,
+    50px 50px,
+    64px 64px,
+    42px 42px,
+    58px 58px,
+    48px 48px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.36 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+.boxWrap {
+  position: relative;
+  width: min(50vw, 660px);
+  aspect-ratio: 16 / 10;
+}
+
+.contactShadow {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: -9%;
+  height: 20%;
+  background: radial-gradient(ellipse at center, rgba(32, 22, 12, 0.4) 0%, rgba(32, 22, 12, 0.2) 42%, transparent 70%);
+  filter: blur(7px);
+  z-index: 0;
+}
+
+.box {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--walnut);
+  box-shadow:
+    0 30px 60px -22px rgba(20, 12, 6, 0.55),
+    0 60px 90px -40px rgba(20, 12, 6, 0.4);
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='440'%3E%3Cfilter id='w' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.14' numOctaves='5' seed='7' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0.7 0 0 0 0.16 0.55 0 0 0 0.09 0.4 0 0 0 0.04 0 0 0 0.9 0' result='g'/%3E%3CfeComponentTransfer in='g'%3E%3CfeFuncA type='linear' slope='1.3' intercept='-0.08'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='440'%3E%3Cfilter id='w2' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.05' numOctaves='4' seed='21' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0 0 0 0 1 0 0 0 0 0.85 0 0 0 0 0.6 0 0 0 0.5 0' result='g'/%3E%3CfeComponentTransfer in='g'%3E%3CfeFuncA type='linear' slope='1.6' intercept='-0.55'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w2)'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  mix-blend-mode: soft-light;
+  opacity: 0.6;
+}
+
+.sheen {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 30%, rgba(255, 235, 205, 0.16) 46%, transparent 62%),
+    radial-gradient(120% 90% at 20% -10%, rgba(255, 220, 180, 0.14), transparent 55%),
+    radial-gradient(110% 90% at 100% 115%, rgba(0, 0, 0, 0.3), transparent 55%);
+  box-shadow:
+    0 1px 0 rgba(255, 232, 200, 0.18) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.35) inset;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.name {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.line {
+  font-weight: 400;
+  color: var(--walnut-deep);
+  text-shadow:
+    -1px -1px 0 var(--engrave-light),
+    1px 1.5px 1.5px var(--engrave-shadow),
+    2px 2.5px 4px rgba(8, 4, 2, 0.3);
+}
+
+.line1 {
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
+  margin-left: 6%;
+}
+
+.line2 {
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
+  margin-top: -0.28em;
+  margin-right: 4%;
+}
+
+.flourish {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.flourishTop {
+  width: 30%;
+  right: 7%;
+  top: 41%;
+}
+
+.flourishBottom {
+  width: 22%;
+  left: 9%;
+  bottom: 30%;
+}
+
+.flourish path {
+  fill: none;
+  stroke: var(--walnut-deep);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  filter: drop-shadow(-0.5px -0.5px 0 var(--engrave-light)) drop-shadow(0.6px 0.8px 0.6px var(--engrave-shadow));
+}
+
+.pinRail {
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  width: 5px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--brass-bright), var(--brass) 45%, var(--brass-shadow));
+  box-shadow: 0 0 0 1px rgba(20, 12, 6, 0.4);
+  z-index: 2;
+}
+
+.pinRailLeft {
+  left: 4%;
+}
+
+.pinRailRight {
+  right: 4%;
+}
+
+.pin {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, var(--brass-bright), var(--brass) 55%, var(--brass-shadow) 100%);
+  box-shadow:
+    0 1px 2px rgba(10, 6, 2, 0.5),
+    0 0 0 1px rgba(20, 12, 6, 0.35);
+  z-index: 3;
+}
+
+.pinTl {
+  left: calc(4% - 4px);
+  top: calc(8% - 6.5px);
+}
+.pinBl {
+  left: calc(4% - 4px);
+  bottom: calc(8% - 6.5px);
+}
+.pinTr {
+  right: calc(4% - 4px);
+  top: calc(8% - 6.5px);
+}
+.pinBr {
+  right: calc(4% - 4px);
+  bottom: calc(8% - 6.5px);
+}
+
+@media (max-width: 640px) {
+  .boxWrap {
+    width: min(84vw, 480px);
+  }
+}
