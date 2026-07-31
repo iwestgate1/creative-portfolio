@@ -3,11 +3,10 @@ import { siteConfig } from "@/data/content";
 import MagneticButton from "./MagneticButton";
 
 const navLinks = [
-  { href: "/#photography", label: "Photography" },
-  { href: "/#work", label: "Work" },
-  { href: "/#about", label: "About" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#about", label: "The Story" },
+  { href: "/#experience", label: "Where I've Created" },
+  { href: "/#photography", label: "Featured Projects" },
+  { href: "/#contact", label: "Start a Conversation" },
 ];
 
 export default function Header() {

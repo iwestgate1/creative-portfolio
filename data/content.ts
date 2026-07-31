@@ -118,7 +118,7 @@ export const roles = ["Founder", "Photographer", "Marketer", "Creative", "Entrep
 
 /* ── EDIT ME: About section copy ────────────────────────────────── */
 export const about = {
-  eyebrow: "About",
+  eyebrow: "The Story",
   heading: "A short introduction",
   paragraphs: [
     "I build brands the way a photographer builds a frame — with attention to what stays out as much as what stays in.",
@@ -736,7 +736,7 @@ export const desk = {
 
 export const photographySection = {
   eyebrow: "Photography",
-  heading: "Selected Commercial Work",
+  heading: "Featured Projects",
   subheading: "Brand, hospitality, and editorial photography — filter by discipline, open any project for the full story.",
   filters: ["All", "Commercial", "Fashion", "Hospitality", "Editorial"] as const,
 };

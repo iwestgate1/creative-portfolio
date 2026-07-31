@@ -15,7 +15,7 @@ export default function Contact() {
       <PaperTexture strong className="mix-blend-overlay" />
 
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-8 text-center">
-        <p className="font-type text-[11px] tracking-[0.24em] text-cream/60">Get in touch</p>
+        <p className="font-type text-[11px] tracking-[0.24em] text-cream/60">Start a Conversation</p>
         <h2 className="font-serif max-w-3xl text-4xl leading-[1.05] sm:text-7xl">{siteConfig.closingLine}</h2>
         <HandwrittenNote size="lg" rotate={-3} className="text-taupe-light">
           {siteConfig.handwrittenAccent}

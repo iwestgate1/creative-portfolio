@@ -63,7 +63,7 @@ export default function AboutSection() {
         <div className="flex flex-col gap-14">
           <div>
             <p className="font-type mb-3 text-[11px] tracking-[0.24em] text-ink-soft/70">{about.eyebrow}</p>
-            <h2 className="font-serif text-6xl leading-[0.95] text-ink sm:text-7xl">ABOUT</h2>
+            <h2 className="font-serif text-6xl leading-[0.95] text-ink sm:text-7xl">THE STORY</h2>
             <div className="mt-5 flex max-w-md flex-col gap-4">
               {about.paragraphs.map((p) => (
                 <p key={p} className="text-sm leading-relaxed text-ink-soft sm:text-base">

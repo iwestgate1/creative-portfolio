@@ -30,7 +30,7 @@ export default function ExperienceSection() {
     <section id="experience" className="relative w-full bg-cream px-6 py-28 sm:px-10 sm:py-36">
       <div className="mx-auto max-w-4xl">
         <p className="font-type mb-3 text-[11px] tracking-[0.24em] text-ink-soft/70">The Index</p>
-        <h2 className="font-serif mb-3 text-4xl italic text-ink sm:text-6xl">Experience Archive</h2>
+        <h2 className="font-serif mb-3 text-4xl italic text-ink sm:text-6xl">Where I&rsquo;ve Created</h2>
         <p className="mb-14 max-w-lg text-sm text-ink-soft sm:text-base">
           Every role is its own dossier — open one for the full process, not a bullet list.
         </p>
