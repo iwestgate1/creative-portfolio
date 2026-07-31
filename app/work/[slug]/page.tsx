@@ -7,10 +7,12 @@ import CaseStudySection from "@/components/casestudy/CaseStudySection";
 import CaseStudyGallery from "@/components/casestudy/CaseStudyGallery";
 import CaseStudyClosing from "@/components/casestudy/CaseStudyClosing";
 import NextProject from "@/components/casestudy/NextProject";
-import { projects } from "@/data/content";
+import { projects, photographyProjects } from "@/data/content";
+
+const allProjects = [...projects, ...photographyProjects];
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return allProjects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({
@@ -19,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = allProjects.find((p) => p.slug === slug);
   if (!project) return {};
   return {
     title: `${project.title} — Case Study`,
@@ -29,12 +31,12 @@ export async function generateMetadata({
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = allProjects.find((p) => p.slug === slug);
   if (!project) notFound();
 
   const { caseStudy } = project;
-  const currentIndex = projects.findIndex((p) => p.slug === slug);
-  const next = projects[(currentIndex + 1) % projects.length];
+  const currentIndex = allProjects.findIndex((p) => p.slug === slug);
+  const next = allProjects[(currentIndex + 1) % allProjects.length];
 
   return (
     <>

@@ -1,8 +1,12 @@
-import type { CaseStudyContent } from "@/data/content";
 import { HandwrittenNote } from "@/components/decor";
 import PageReveal from "./PageReveal";
 
-export default function CaseStudyClosing({ caseStudy }: { caseStudy: CaseStudyContent }) {
+interface ClosingContent {
+  results: string[];
+  reflection: string;
+}
+
+export default function CaseStudyClosing({ caseStudy }: { caseStudy: ClosingContent }) {
   return (
     <PageReveal className="w-full bg-espresso px-6 py-20 text-cream sm:px-10 sm:py-28">
       <div className="mx-auto max-w-3xl">

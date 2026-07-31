@@ -10,6 +10,8 @@ import MagazineSpread from "./formats/MagazineSpread";
 import MobileStack from "./formats/MobileStack";
 import ClippedDocument from "./formats/ClippedDocument";
 import Moodboard from "./formats/Moodboard";
+import FilmStrip from "./formats/FilmStrip";
+import PinnedCollage from "./formats/PinnedCollage";
 
 const formatComponents = {
   folder: BrandFolder,
@@ -18,6 +20,8 @@ const formatComponents = {
   "mobile-stack": MobileStack,
   "clipped-document": ClippedDocument,
   moodboard: Moodboard,
+  "film-strip": FilmStrip,
+  "pinned-collage": PinnedCollage,
 };
 
 export default function ProjectCard({ project, className = "" }: { project: Project; className?: string }) {

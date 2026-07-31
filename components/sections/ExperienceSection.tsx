@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { gsap } from "@/lib/gsap";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { experience } from "@/data/content";
@@ -9,7 +10,6 @@ import { useCursorLabel } from "@/components/cursor/CursorContext";
 
 export default function ExperienceSection() {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [expanded, setExpanded] = useState<number | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const setCursorLabel = useCursorLabel();
   const reducedMotion = useReducedMotion();
@@ -30,14 +30,16 @@ export default function ExperienceSection() {
     <section id="experience" className="relative w-full bg-cream px-6 py-28 sm:px-10 sm:py-36">
       <div className="mx-auto max-w-4xl">
         <p className="font-type mb-3 text-[11px] tracking-[0.24em] text-ink-soft/70">The Index</p>
-        <h2 className="font-serif mb-14 text-4xl italic text-ink sm:text-6xl">Experience Archive</h2>
+        <h2 className="font-serif mb-3 text-4xl italic text-ink sm:text-6xl">Experience Archive</h2>
+        <p className="mb-14 max-w-lg text-sm text-ink-soft sm:text-base">
+          Every role is its own dossier — open one for the full process, not a bullet list.
+        </p>
 
         <ul className="flex flex-col">
           {experience.map((item, i) => (
-            <li key={item.role} className="border-t border-line/70 last:border-b">
-              <button
-                type="button"
-                onClick={() => setExpanded(expanded === i ? null : i)}
+            <li key={item.slug} className="border-t border-line/70 last:border-b">
+              <Link
+                href={`/experience/${item.slug}`}
                 onMouseEnter={() => {
                   setHovered(i);
                   setCursorLabel("View");
@@ -58,19 +60,7 @@ export default function ExperienceSection() {
                   <span>{item.location}</span>
                   <span>{item.year}</span>
                 </span>
-              </button>
-
-              <div
-                className="overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                style={{ maxHeight: expanded === i ? 220 : 0, opacity: expanded === i ? 1 : 0 }}
-              >
-                <div className="grid gap-6 pb-8 sm:grid-cols-[160px_1fr]">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden shadow-paper sm:w-40">
-                    <EditorialImage {...item.image} tone="folder" sizes="160px" />
-                  </div>
-                  <p className="max-w-md text-sm leading-relaxed text-ink-soft">{item.description}</p>
-                </div>
-              </div>
+              </Link>
             </li>
           ))}
         </ul>

@@ -3,6 +3,7 @@ import { siteConfig } from "@/data/content";
 import MagneticButton from "./MagneticButton";
 
 const navLinks = [
+  { href: "/#photography", label: "Photography" },
   { href: "/#work", label: "Work" },
   { href: "/#about", label: "About" },
   { href: "/#experience", label: "Experience" },
@@ -11,7 +12,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 mix-blend-difference">
+    <header data-site-header className="pointer-events-none fixed inset-x-0 top-0 z-50 mix-blend-difference">
       <div className="pointer-events-auto flex items-center justify-between px-5 py-5 text-cream sm:px-10 sm:py-7">
         <Link href="/" className="font-serif text-sm tracking-[0.05em] sm:text-base">
           {siteConfig.shortName}
